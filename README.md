@@ -1,16 +1,16 @@
-# alquran_api
+# alquran_app
 
-A new Flutter project.
+Slicing UI/UX design Alquran dan menggunakan authentication dari Firebase 
+Data menggunakan 3rd party api yang diperolh dari Internet.
+Progress ssat ini masih 30% , akan diselesaikan segera
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Design UI/UX ini diambil dari Figma, berikut link nya :
+https://www.figma.com/community/file/966921639679380402
 
-A few resources to get you started if this is your first Flutter project:
+Project ini menerapkan Clean Architecture Pattern dan menggunakan data API
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Berikut sedikit Screenshot Design nya
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
