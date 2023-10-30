@@ -1,3 +1,4 @@
+import 'package:alquran_api/features/home/domain/entities/detail_surah_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constant/app_colors.dart';
@@ -6,7 +7,9 @@ import '../../../../constant/url_asset.dart';
 import '../../../../widget/misc/default_divider_widget.dart';
 
 class DetailAyahWidget extends StatelessWidget {
-  const DetailAyahWidget({super.key});
+  const DetailAyahWidget({super.key, required this.data});
+
+  final AyatEntity data;
 
   @override
   Widget build(BuildContext context) {
@@ -20,37 +23,33 @@ class DetailAyahWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
           width: double.infinity,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
                 radius: 15,
                 backgroundColor: AppColors.blueColor,
                 child: Center(
                   child: Text(
-                    '1',
+                    '${data.nomorAyat}',
                     style: AppText.text14.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Text(
-                  'Al-Fatihah',
-                  style: AppText.text16.copyWith(
-                    fontWeight: FontWeight.w600,
+              Row(
+                children: [
+                  Image.asset(UrlAsset.share, width: 24),
+                  const SizedBox(width: 16),
+                  Image.asset(UrlAsset.play, width: 24),
+                  const SizedBox(width: 16),
+                  Image.asset(
+                    UrlAsset.bookmark,
+                    width: 24,
+                    color: AppColors.ayahDarkColor,
                   ),
-                ),
-              ),
-              Image.asset(UrlAsset.share, width: 24),
-              const SizedBox(width: 16),
-              Image.asset(UrlAsset.play, width: 24),
-              const SizedBox(width: 16),
-              Image.asset(
-                UrlAsset.bookmark,
-                width: 24,
-                color: AppColors.ayahDarkColor,
-              ),
+                ],
+              )
             ],
           ),
         ),
@@ -58,7 +57,7 @@ class DetailAyahWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            'الْحَمْدُ لِلَّهِ رَبِّ الْعٰلَمِينَ',
+            data.teksArab,
             style: AppText.secondaryText18.copyWith(
               fontWeight: FontWeight.w700,
               height: 2.3,
@@ -67,9 +66,25 @@ class DetailAyahWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Text(
-          '[All] praise is [due] to Allah, Lord of the worlds -',
-          style: AppText.text18.copyWith(color: AppColors.greyDarkColor),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            data.teksLatin,
+            style: AppText.secondaryText18.copyWith(
+              fontWeight: FontWeight.w700,
+              height: 2.3,
+              color: AppColors.greyDarkColor,
+            ),
+            textAlign: TextAlign.right,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            data.teksIndonesia,
+            style: AppText.text18.copyWith(color: AppColors.greyDarkColor),
+          ),
         ),
         const SizedBox(height: 16),
         const DefaultDividerWidget(),

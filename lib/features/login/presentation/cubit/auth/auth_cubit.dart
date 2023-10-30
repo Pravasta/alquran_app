@@ -36,6 +36,8 @@ class AuthCubit extends Cubit<AuthState> {
       emit(Authenticated(uid: uid));
     } on SocketException catch (_) {
       emit(UnAuthenticated());
+    } catch (e) {
+      emit(UnAuthenticated());
     }
   }
 

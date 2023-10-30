@@ -199,6 +199,7 @@ class _LoginViewState extends State<LoginView> {
           if (state is UserFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
+                backgroundColor: AppColors.ayahDarkColor,
                 content: Text('Invalid Email'),
               ),
             );

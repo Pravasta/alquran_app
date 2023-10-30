@@ -1,3 +1,4 @@
+import 'package:alquran_api/features/home/domain/entities/surah_entity.dart';
 import 'package:alquran_api/widget/misc/default_divider_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -6,9 +7,10 @@ import '../../../../constant/app_text.dart';
 import '../../../../constant/url_asset.dart';
 
 class SurahWidget extends StatelessWidget {
-  const SurahWidget({super.key, required this.onTap});
+  const SurahWidget({super.key, required this.onTap, required this.data});
 
   final VoidCallback onTap;
+  final SurahEntity data;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class SurahWidget extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      '1',
+                      data.nomor.toString(),
                       style: AppText.text14.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
@@ -46,14 +48,14 @@ class SurahWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Al-Fatihah',
+                        data.namaLatin,
                         style: AppText.text18.copyWith(
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Meccan \u2022 7 Verses',
+                        '${data.tempatTurun} \u2022 ${data.jumlahAyat} Verses',
                         style: AppText.text14.copyWith(
                           fontWeight: FontWeight.w500,
                           color: AppColors.greyDarkColor,
@@ -63,7 +65,7 @@ class SurahWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'الفاتحة',
+                  data.nama,
                   style: AppText.secondaryText18.copyWith(
                     fontSize: 20,
                     color: AppColors.ayahDarkColor,

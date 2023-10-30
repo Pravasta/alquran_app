@@ -1,8 +1,10 @@
 import 'package:alquran_api/common/routes/route_handler.dart';
 import 'package:alquran_api/constant/theme_data.dart';
-import 'package:alquran_api/features/login/presentation/cubit/auth/auth_cubit.dart';
-import 'package:alquran_api/features/login/presentation/cubit/single_user/single_user_cubit.dart';
-import 'package:alquran_api/features/login/presentation/cubit/user/user_cubit.dart';
+import 'package:alquran_api/features/home/presentation/cubit/detail_surah_cubit/detail_surah_cubit.dart';
+import 'package:alquran_api/features/home/presentation/cubit/surah_cubit/surah_cubit.dart';
+import 'features/login/presentation/cubit/auth/auth_cubit.dart';
+import 'features/login/presentation/cubit/single_user/single_user_cubit.dart';
+import 'features/login/presentation/cubit/user/user_cubit.dart';
 import 'package:alquran_api/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +38,12 @@ class MyApp extends StatelessWidget {
             create: (_) => di.locator<DashboardCubit>()),
         BlocProvider<SingleUserCubit>(
             create: (_) => di.locator<SingleUserCubit>()),
+        BlocProvider<SurahCubit>(
+          create: (_) => di.locator<SurahCubit>()..getSurah(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<DetailSurahCubit>(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeDataColor.lightColor,
